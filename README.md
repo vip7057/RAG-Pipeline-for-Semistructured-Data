@@ -41,10 +41,14 @@ pip install -r requirements.txt
 ```
 
 ### Step 4: Set Up the .env File
-Create a .env file in the project root directory. This file will store your API keys and tokens. It should contain the following variables:
+Create a .env file in the project root directory. This file will store your API keys and tokens. 
 
-![LANGCHAIN_API_KEY: Your LangChain API key.]
-![HUGGINGFACE_TOKEN: Your HuggingFace token for using models like bigscience/bloom-560m.]
+Example of .env file:(A ".env" file with dummy keys and tokens is included in the directory, please add your langchain API key and HuggingFace token there)
+
+``` bash
+LANGCHAIN_API_KEY=your_langchain_api_key
+HUGGINGFACE_TOKEN=your_huggingface_token
+```
 
 To obtain your API keys:
 
@@ -54,12 +58,7 @@ Go to LangChain and sign up for an account. After signing in, find your API key 
 HuggingFace Token:
 Go to HuggingFace and sign up or log in. Navigate to your account settings, and under the Access Tokens tab, create a new token. Copy the token and add it to the .env file.
 
-Example of .env file:
 
-``` bash
-LANGCHAIN_API_KEY=your_langchain_api_key
-HUGGINGFACE_TOKEN=your_huggingface_token
-```
 ### Step 5: Install Additional Tools
 The following external tools are required for extracting data from PDFs and performing OCR tasks:
 
