@@ -111,6 +111,31 @@ streamlit run main.py
 ```
 This will start the pipeline and allow you to interact with the application via a streamlit based web application.
 
+## System Design & Methodology
+The overall methodology for this system is designed to process and answer user queries from PDFs efficiently.
+
+#### PDF Partitioning & Chunking:
+The first step is partitioning the PDF document using the unstructured library. Chunking by title is chosen because it logically separates different sections of the document based on headings, making it easier to organize and retrieve relevant content later. This approach allows the system to structure the data in a meaningful way, reducing irrelevant information in the query response.
+
+#### Text and Table Separation:
+- After partitioning, the text blocks are separated into two categories: raw text and tables. Tables are converted into HTML text format for better readability and extraction, as they often contain structured data that is crucial for queries related to tabular information.
+
+#### Summarization of Raw Documents:
+- The raw text and table content are then summarized using an open-source LLM. This step condenses the content while preserving key information, making it more manageable and suitable for retrieval. Summarization helps in reducing the size of the content, which is crucial for efficient querying.
+
+#### Embedding & Storage:
+- After summarization, the condensed versions of the text and table content are embedded into vectors using the Chroma Vectorstore. These embeddings are stored in the vector database, ensuring fast and efficient similarity search.
+The corresponding raw documents (text and tables) are stored in an InMemory Docstore, enabling quick retrieval alongside their summarized versions.
+
+#### Caching/Persisting for Reuse:
+- Both the Vectorstore and Docstore are cached locally. This caching mechanism ensures that the same PDF doesn’t have to be processed multiple times, significantly improving system performance. Once a document has been processed, the embeddings and raw content are saved locally for future use, preventing redundant processing.
+
+#### Query Processing & Retrieval:
+- When a user submits a query, a "MultiVectorRetriever" is used to retrieve relevant summaries from the chroma vectorstore by indexing based on the query. This ensures that the most pertinent summaries are retrieved quickly.
+The relevant raw documents are then retrieved from the docstore, providing detailed context to feed into the language model for generating an accurate response.
+
+By organizing the workflow in this manner, the system efficiently processes large documents, retrieves relevant content, and generates answers to user queries with minimal latency, while the caching mechanism improves efficiency by avoiding redundant processing of previously analyzed PDFs.
+
 
 ## Limitations and Known Issues
 
