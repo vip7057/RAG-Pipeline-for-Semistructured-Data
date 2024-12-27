@@ -110,6 +110,7 @@ Run the main.py file:
 streamlit run main.py
 ```
 This will start the pipeline and allow you to interact with the application via a streamlit based web application.
+(If you would like to add your own PDF files for querying then add them to "./app/data/", and then just enter the name of the PDF you want to query at the streamlit web app startup)
 
 ## System Design & Methodology
 The overall methodology for this system is designed to process and answer user queries from PDFs efficiently.
