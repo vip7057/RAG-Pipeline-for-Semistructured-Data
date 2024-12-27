@@ -14,7 +14,7 @@ git clone https://github.com/vip7057/llm-chatbot-university-germany.git
 Navigate to the project directory:
 
 ```bash
-cd repo-name
+cd llm-chatbot-university-germany
 ```
 
 ### Step 2: Set up a Conda Environment
