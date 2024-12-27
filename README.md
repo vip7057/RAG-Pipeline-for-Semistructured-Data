@@ -109,4 +109,34 @@ Run the main.py file:
 ```bash
 streamlit run main.py
 ```
-This will start the pipeline and allow you to interact with the application via a web application.
+This will start the pipeline and allow you to interact with the application via a streamlit based web application.
+
+
+## Limitations and Known Issues
+
+### Table-Text Relevance:
+The system stores tables separately from the surrounding text. This results in the loss of contextual relevance between the tables and the surrounding content. This is a known limitation and requires further improvements in how tables are embedded and related to the surrounding text.
+
+### PDF Table Extraction:
+The unstructured library works well for semi-structured documents but struggles with extracting tables from larger PDFs, especially those with complex layouts. As a result, the accuracy of table extraction may not always be optimal. Future work could involve integrating more advanced table extraction tools to improve the performance in these scenarios.
+
+### Chunking and Querying:
+The chunking strategy, although designed to manage large documents, may still face challenges when handling documents that require more granular chunking or specialized processing (e.g., scientific papers with many formulas).
+
+### Summarization and Keyword Relevance:
+While summarizing raw text and table documents for semantic retrieval, there is a risk that the summaries may not include the necessary keywords to match with the user's query. As a result, the retrieval step may completely miss out on relevant context. This can be mitigated by ensuring that the model is prompted to include all necessary keywords in the summaries to improve retrieval accuracy.
+
+
+## Future Improvements
+
+### Contextual Table Embedding:
+Improve the system by embedding tables with the surrounding text to retain the relevance between text and tables. This will help improve the quality of responses, especially for queries related to specific tables.
+
+### Enhanced Table Extraction:
+Exploring advanced tools and libraries for better table extraction from large PDFs would enhance the system’s ability to process and handle complex documents more effectively.
+
+### Query Processing Optimization:
+Introducing a more robust query preprocessing pipeline, possibly with NLP-based techniques to better handle variations in user queries, could improve the response quality.
+
+### Multilingual Support:
+Adding support for multiple languages would expand the utility of the system for a broader audience.
