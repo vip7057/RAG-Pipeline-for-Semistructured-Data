@@ -14,7 +14,7 @@ git clone https://github.com/vip7057/RAG-Pipeline-for-Semistructured-Data.git
 Navigate to the project directory:
 
 ```bash
-cd llm-chatbot-university-germany
+cd RAG-Pipeline-for-Semistructured-Data
 ```
 
 ### Step 2: Set up a Conda Environment
