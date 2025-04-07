@@ -8,7 +8,7 @@ This project implements a Retrieval-Augmented Generation (RAG) pipeline for quer
 To start with the project, clone the GitHub repository to your local machine:
 
 ```bash
-git clone https://github.com/vip7057/llm-chatbot-university-germany.git
+git clone https://github.com/vip7057/RAG-Pipeline-for-Semistructured-Data.git
 ```
 
 Navigate to the project directory:
